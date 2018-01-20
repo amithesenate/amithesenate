@@ -39,9 +39,24 @@
       }
     </style>
     <script type="text/javascript">
+      var api_url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/39c02fc8-c2f9-440b-83a0-0d1c4f474a0e/url?iterationId=7adbe0b9-56cd-4b0d-9a38-5ecac58cf97e"
+      
       function assess() {
         console.log("assessments were made!");
-        document.getElementById("verdict").hidden = false;
+        var payload = JSON.stringify({"Url": document.getElementByID("url").value});
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+             // Typical action to be performed when the document is ready:
+             var verdictdiv = document.getElementById("verdict");
+             verdictdiv.hidden = false;
+             verdictdiv.innerText = xhttp.responseText;
+           }
+        };
+        xhttp.setRequestHeader("Prediction-Key", "c99e6d602f15459c9a4dacfff233c7f7");
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.open("POST", api_url, true);
+        xhttp.send(payload); 
         return false;
       }
     </script>
@@ -59,7 +74,7 @@
         Are you the senate?
       </div>
       <form onsubmit="return assess();">
-        <input type="file" id="imageupload"></input><br>
+        <input type="file" name="file" id="imageupload"></input><br>
         <input type="text" name="url" id="url"></input>
         <input type="submit" value="UNLIMITED POWER"></input>
       </form>
