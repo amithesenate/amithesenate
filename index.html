@@ -43,7 +43,7 @@
       
       function assess() {
         console.log("assessments were made!");
-        var payload = JSON.stringify({"Url": document.getElementByID("url").value});
+        var payload = JSON.stringify({"Url": document.getElementById("url").value});
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
            if (this.readyState == 4 && this.status == 200) {
