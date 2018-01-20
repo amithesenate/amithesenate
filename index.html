@@ -38,6 +38,12 @@
         font-size: 1000%;
       }
     </style>
+    <script type="text/javascript">
+      function assess() {
+        console.log("assessments were made!");
+        return false;
+      }
+    </script>
   </head>
   <body>
     <div class="background">
@@ -51,6 +57,11 @@
       <div class="heading">
         Are you the senate?
       </div>
+      <form onsubmit="return assess();">
+        <input type="file" id="imageupload"></input>
+        <input type="text" name="url" id="url"></input>
+        <input type="submit" value="UNLIMITED POWER"></input>
+      </form>
       <div class="verdict">
         NO
       </div>
