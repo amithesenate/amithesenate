@@ -56,6 +56,8 @@
              var response = JSON.parse(xhttp.responseText);
              console.log(response);
              
+             var theform = document.getElementById("theform");
+             theform.hidden = true;
              var verdictdiv = document.getElementById("verdict");
              verdictdiv.hidden = false;
              
@@ -99,7 +101,7 @@
       <div class="heading">
         Are you the senate?
       </div>
-      <form onsubmit="return assess();">
+      <form onsubmit="return assess();" id="theform">
         <input type="file" name="file" id="imageupload"></input><br>
         <input type="text" name="url" id="url"></input>
         <input type="submit" value="UNLIMITED POWER"></input>
