@@ -6,22 +6,24 @@
         font-family: helvetica, sans-serif;
         text-align: center;
         margin: none;
-        background: black;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hyades.jpg/1200px-Hyades.jpg");
       }
       
       .background svg path {
-        fill: #444 !important;
+        fill: #888 !important;
+        opacity: 0.75 !important;
       }
       
-      .background svg {
+      .background svg, .content {
         margin: auto;
-        position: fixed;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);     
       }
       
       .content {
-        position: fixed;
-        min-height: 30%;
-        min-width: 30%;
+        text-align: center;
         margin: auto;
         color: white;
       }
@@ -49,7 +51,7 @@
         Are you the senate?
       </div>
       <div class="verdict">
-        No
+        NO
       </div>
     </div>
   </body>
