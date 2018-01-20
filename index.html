@@ -54,7 +54,7 @@
                if (a.Probability > b.Probability) return 1;
                if (a.Probability < b.Probability) return -1;
                return 0;
-             }
+             });
              var verdictdiv = document.getElementById("verdict");
              verdictdiv.hidden = false;
              verdictdiv.innerText = response.Predictions[0].Tag;
