@@ -5,25 +5,34 @@
       body {
         font-family: helvetica, sans-serif;
         text-align: center;
-      }
-      
-      .background {
-        background: black;
-        color: white;
-        height: 100%;
-        width: 100%;
-        border: none;
         margin: none;
-        padding: none;
+        background: black;
       }
       
       .background svg-icon path {
-        fill: #444;
+        fill: #444 !important;
+      }
+      
+      .background svg-icon {
+        margin: auto;
+        position: fixed;
       }
       
       .content {
-        color: black;
-        background: white;
+        position: fixed;
+        min-height: 30%;
+        min-width: 30%;
+        margin: auto;
+        color: white;
+      }
+      
+      .heading {
+        font-size: 120%;
+      }
+      
+      .verdict {
+        font-weight: bold;
+        font-size: 1000%;
       }
     </style>
   </head>
