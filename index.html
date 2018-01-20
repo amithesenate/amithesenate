@@ -33,7 +33,7 @@
         font-size: 120%;
       }
       
-      .verdict {
+      #verdict {
         font-weight: bold;
         font-size: 1000%;
       }
@@ -41,6 +41,7 @@
     <script type="text/javascript">
       function assess() {
         console.log("assessments were made!");
+        window.getElementById("verdict").hidden = false;
         return false;
       }
     </script>
@@ -62,7 +63,7 @@
         <input type="text" name="url" id="url"></input>
         <input type="submit" value="UNLIMITED POWER"></input>
       </form>
-      <div class="verdict">
+      <div id="verdict" hidden="true">
         NO
       </div>
     </div>
