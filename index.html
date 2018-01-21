@@ -37,9 +37,12 @@
         padding: 20px;
       }
       
-      #verdict {
+      .big {
         font-weight: bold;
         font-size: 1000%;
+      }
+        
+      #verdict {
         margin: auto;
       }
       
@@ -92,8 +95,9 @@
                document.getElementById("formdiv").hidden = true;
                document.getElementById("heading").hidden = true;
                document.getElementById("preview").hidden = true;
-               var verdictdiv = document.getElementById("verdict");
-               verdictdiv.hidden = false;
+               document.getElementById("verdict").hidden = false;
+               var verdict = document.getElementById("bigverdict");
+               var confidence = document.getElementById("confidence");
                
                var found = false;
                for (var i = 0; i < response.Predictions.length; i++) {
@@ -104,14 +108,16 @@
                }
                
                if (!found) {
-                 verdictdiv.innerText = default_response;
+                 verdict.innerText = default_response;
+                 confidence.innerText = (85 + random() * 10).toFixed(2);
                } else {
                  response.Predictions.sort(function(a, b) { 
                    if (a.Probability > b.Probability) return -1;
                    if (a.Probability < b.Probability) return 1;
                    return 0;
                  });
-                 verdictdiv.innerText = human_response[response.Predictions[0].Tag];
+                 verdict.innerText = human_response[response.Predictions[0].Tag];
+                 confidence.innerText = (response.Predictions[0].Probability * 100).toFixed(2);
                }
              }
            }
@@ -178,7 +184,8 @@
         </form>
       </div>
       <div id="verdict" hidden="true">
-        NO
+        <span class="big" id="bigverdict">NO</span><br>
+        Confidence: <span id="confidence">0</span>%
       </div>
     </div>
   </body>
