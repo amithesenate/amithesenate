@@ -134,7 +134,7 @@
           var value = document.getElementById("url").value;
           if (value) {
             var payload = JSON.stringify({"Url": document.getElementById("url").value});
-            xhttp.open("POST", api_url, true);
+            xhttp.open("POST", api_url_url, true);
             xhttp.setRequestHeader("Prediction-Key", "c99e6d602f15459c9a4dacfff233c7f7");
             xhttp.setRequestHeader("Content-Type", "application/json");
             xhttp.send(payload); 
