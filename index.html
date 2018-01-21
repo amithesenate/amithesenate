@@ -152,13 +152,15 @@
       <div class="heading">
         Are you the senate?
       </div>
-      <form onsubmit="return assess();" id="theform">
-        <img src="" height="200" id="preview"><br>
-        Upload a file: <input type="file" name="file" id="file" onchange="previewFile()"></input><br>
-        XOR enter an image url:<br>
-        <input type="text" name="url" id="url" placeholder="Enter an image url..."></input><br>
-        <input type="submit" value="UNLIMITED POWER"></input>
-      </form>
+      <div class="formdiv">
+        <form onsubmit="return assess();" id="theform">
+          <img src="" height="200" id="preview"><br>
+          Upload a file: <input type="file" name="file" id="file" onchange="previewFile()"></input><br>
+          XOR enter an image url:<br>
+          <input type="text" name="url" id="url" placeholder="Enter an image url..."></input><br>
+          <input type="submit" value="UNLIMITED POWER"></input>
+        </form>
+      </div>
       <div id="verdict" hidden="true">
         NO
       </div>
