@@ -34,19 +34,30 @@
       .heading {
         font-size: 200%;
         font-weight: bold;
+        padding: 20px;
       }
       
       #verdict {
         font-weight: bold;
         font-size: 1000%;
+        margin: auto;
+      }
+      
+      #formdiv {
+        margin: auto;
       }
       
       #url {
         width:100%;
       }
       
-      form {
-        text-align: left;
+      #preview {
+        border-color: white;
+        border-style: solid;
+      }
+      
+      #imagediv {
+        margin: auto;
       }
       
       table.layout td {
@@ -152,9 +163,11 @@
       <div class="heading">
         Are you the senate?
       </div>
+      <div id="imagediv">
+        <img src="" height="200" id="preview">
+      </div>
       <div id="formdiv">
         <form onsubmit="return assess();" id="theform">
-          <img src="" height="200" id="preview"><br>
           Upload a file: <input type="file" name="file" id="file" onchange="previewFile()"></input><br>
           XOR enter an image url:<br>
           <input type="text" name="url" id="url" placeholder="Enter an image url..."></input><br>
