@@ -120,6 +120,22 @@
         }
         return false;
       }
+      
+      function previewFile() {
+        var preview = document.getElementById('preview');
+        var file    = document.getElementById('file').files[0];
+        var reader  = new FileReader();
+        
+        reader.onloadend = function () {
+          preview.src = reader.result;
+        }
+
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+          preview.src = "";
+        }
+      }
     </script>
   </head>
   <body>
@@ -139,7 +155,10 @@
           <tbody>
             <tr>
               <td>Upload a file:</td>
-              <td><input type="file" name="file" id="file"></input></td>
+              <td>
+                <img src="" height="200" alt="Image preview...">
+                <input type="file" name="file" id="file" onchange="previewFile()"></input>
+              </td>
             </tr>
             <tr>
               <td>XOR</td>
