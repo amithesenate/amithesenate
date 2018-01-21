@@ -108,6 +108,11 @@
       };
       var default_response = "NO";
       
+      function shooting_stars() {
+        var audio = new Audio(encodeURI("Bag Raiders - Shooting Stars.mp3"));
+        audio.play();
+      }
+      
       function assess() {
         console.log("assessments were made!");
         var xhttp = new XMLHttpRequest();
@@ -146,8 +151,7 @@
                  confidence.innerText = (response.Predictions[0].Probability * 100).toFixed(2);
                  
                  if (response.Predictions[0].Tag == "The_senate") {
-                   var audio = new Audio(encodeURI("Bag Raiders - Shooting Stars.mp3"));
-                   audio.play()
+                   shooting_stars();
                  }
                }
              } else {
