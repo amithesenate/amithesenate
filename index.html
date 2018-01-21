@@ -109,7 +109,7 @@
                
                if (!found) {
                  verdict.innerText = default_response;
-                 confidence.innerText = (85 + random() * 10).toFixed(2);
+                 confidence.innerText = (85 + Math.random() * 10).toFixed(2);
                } else {
                  response.Predictions.sort(function(a, b) { 
                    if (a.Probability > b.Probability) return -1;
