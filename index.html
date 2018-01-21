@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html>
   <head>
     <title>Am I the senate?</title>
     <link rel="shortcut icon" type="image/png" src="circleicon.png"/>
+    <script type="text/javascript" src="bower_components/bounce.js/bounce.js"></script>
     <style type="text/css">
       body {
         font-family: helvetica, sans-serif;
@@ -97,6 +99,51 @@
         color: red;
         font-weight: bold;
       }
+      /*
+        Shooting stars animation
+      */
+    .shooting-gif  { 
+    -webkit-animation-name: spin, move;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin, move;
+    -moz-animation-duration: 4000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin, move;
+    -ms-animation-duration: 4000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear; 
+        
+    animation-name: spin, move;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;}
+    keyframes move {
+
+    }
+
+    @-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+        
     </style>
     <script type="text/javascript">
       var api_url_url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/39c02fc8-c2f9-440b-83a0-0d1c4f474a0e/url?iterationId=f182c840-4b71-424c-97a4-aae5b3eb0b7e";
@@ -111,10 +158,31 @@
       function shooting_stars() {
         var audio = new Audio(encodeURI("Bag Raiders - Shooting Stars.mp3"));
         audio.play();
+        var gif = document.createElement('img');
+        gif.setAttribute('src', 'https://68.media.tumblr.com/e490ea4f3a8246c20a790560111073e2/tumblr_nxvo3lFmhK1twy0tho1_1280.gif');
+        gif.setAttribute('alt', 'a spinning sheev');
+        gif.setAttribute('width', '15%');
+        gif.setAttribute('width', '8%');
+        gif.setAttribute('class', 'shooting-gif')
+        document.body.appendChild(gif);
+        var bounce = new Bounce();
+        bounce.translate({
+        from: { x: 0, y: 0 },
+        to: { x: 100, y: 100 },
+        duration: 1000 ,
+            bounces: 0
+        }).translate({
+            from: {x:0, y:0},
+            to: {x:-100, y:-100},
+        duration: 1000, 
+        delay: 1000
+        });
+        //bounce.applyTo(document.getElementsByClassName("shooting-gif"), loops=true);
       }
       
       function assess() {
         console.log("assessments were made!");
+        shooting_stars();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
            if (this.readyState == 4) {
