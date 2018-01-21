@@ -63,33 +63,33 @@
         margin: auto;
       }
       
-      table.layout td {
-        padding: 3px;
-      }
-      
-      table.layout tr :first-child {
-        text-align: right;
-      }
-      
-      formprompt, forminput {
+      .formprompt, .forminput, .forminput input, .forminput label {
         width: 100%;
       }
       
-     forminput input, forminput label {
+      .formprompt {
+        text-align: left;
+      }
+      
+      .forminput input, .forminput label {
         border-radius: 3px;
         border-color: white;
         border-style: solid;
         border-width: 1px;
       }
       
-      forminput input[type="button"], forminput label {
+      .forminput input[type="button"], .forminput label {
         background: white;
         color: black;
         font-weight: bold;
       }
       
-      forminput input[type="file"] {
+      .forminput input[type="file"] {
         display: none;
+      }
+      
+      .formerror {
+        color: red;
       }
     </style>
     <script type="text/javascript">
@@ -139,6 +139,18 @@
                  verdict.innerText = human_response[response.Predictions[0].Tag];
                  confidence.innerText = (response.Predictions[0].Probability * 100).toFixed(2);
                }
+             } else {
+               var error = document.getElementById("formerror");
+               error.hidden = false;
+               if (this.status == 400 && (response.Code == "BadRequestImageUrl" || response.Code == "BadRequestImageFormat")) {
+                 error.innerText = "How embarrassing! That's not an image.";
+               } else {
+                 error.innerText = "You are on this website, but we do not grant you the rank of user.";
+               }
+             } else {
+               var error = document.getElementById("formerror");
+               error.hidden = false;
+               error.innerText = "How embarrassing! That's not an image.";
              }
            }
         };
@@ -216,6 +228,7 @@
             <input type="submit" value="UNLIMITED POWER" />
           </div>
         </form>
+        <div class="formerror" id="formerror" hidden="true"/>
       </div>
       <div id="verdict" hidden="true">
         <span class="big" id="bigverdict">NO</span><br>
