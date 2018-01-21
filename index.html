@@ -70,6 +70,27 @@
       table.layout tr :first-child {
         text-align: right;
       }
+      
+      formprompt, forminput {
+        width: 100%;
+      }
+      
+     forminput input, forminput label {
+        border-radius: 3px;
+        border-color: white;
+        border-style: solid;
+        border-width: 1px;
+      }
+      
+      forminput input[type="button"], forminput label {
+        background: white;
+        color: black;
+        font-weight: bold;
+      }
+      
+      forminput input[type="file"] {
+        display: none;
+      }
     </style>
     <script type="text/javascript">
       var api_url_url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/39c02fc8-c2f9-440b-83a0-0d1c4f474a0e/url?iterationId=f182c840-4b71-424c-97a4-aae5b3eb0b7e";
@@ -176,10 +197,24 @@
       </div>
       <div id="formdiv">
         <form onsubmit="return assess();" id="theform">
-          Upload a file: <input type="file" name="file" id="file" onchange="previewFile()"></input><br>
-          XOR enter an image url:<br>
-          <input type="text" name="url" id="url" placeholder="Enter an image url..."></input><br>
-          <input type="submit" value="UNLIMITED POWER"></input>
+          <div class="formprompt">
+            Upload a file:
+          </div>
+          <div class="forminput">
+            <label for="file" class="customfileinput">
+              <input type="file" name="file" id="file" onchange="previewFile()" />
+              SELECT A FILE
+            </label>
+          </div>
+          <div class="formprompt">
+            XOR enter an image url:
+          </div>
+          <div class="forminput">
+            <input type="text" name="url" id="url" placeholder="Enter an image url..." />
+          </div>
+          <div class="forminput">
+            <input type="submit" value="UNLIMITED POWER" />
+          </div>
         </form>
       </div>
       <div id="verdict" hidden="true">
