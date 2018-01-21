@@ -76,8 +76,8 @@
              
              if (this.status == 200) {    
                // Typical action to be performed when the document is ready:
-               var theform = document.getElementById("theform");
-               theform.hidden = true;
+               var formdiv = document.getElementById("formdiv");
+               formdiv.hidden = true;
                var verdictdiv = document.getElementById("verdict");
                verdictdiv.hidden = false;
                
@@ -152,7 +152,7 @@
       <div class="heading">
         Are you the senate?
       </div>
-      <div class="formdiv">
+      <div id="formdiv">
         <form onsubmit="return assess();" id="theform">
           <img src="" height="200" id="preview"><br>
           Upload a file: <input type="file" name="file" id="file" onchange="previewFile()"></input><br>
