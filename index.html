@@ -201,6 +201,14 @@
           preview.src = "";
         }
       }
+      
+      function fliptext() {
+        document.getElementById("ultimatepower").value = "ULTIMATE POWER";
+      }
+      
+      function floptext() {
+        document.getElementById("ultimatepower").value = "SUBMIT";
+      }
     </script>
   </head>
   <body>
@@ -236,7 +244,7 @@
             <input type="text" name="url" id="url" placeholder="Enter an image url..." />
           </div>
           <div class="forminput">
-            <input type="submit" value="UNLIMITED POWER" />
+            <input type="submit" id="unlimitedpower" value="SUBMIT" onmouseover="fliptext()" onmouseout="floptext()" />
           </div>
         </form>
         <div class="formerror" id="formerror" hidden="true"></div>
