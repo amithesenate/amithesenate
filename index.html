@@ -122,9 +122,22 @@
         Are you the senate?
       </div>
       <form onsubmit="return assess();" id="theform">
-        Upload a file: <input type="file" name="file" id="file"></input><br>
-        XOR <input type="text" name="url" id="url" placeholder="Enter an image url..."></input><br>
-        <input type="submit" value="UNLIMITED POWER"></input>
+        <table clas="layout">
+          <tbody>
+            <tr>
+              <td>Upload a file:</td>
+              <td><input type="file" name="file" id="file"></input></td>
+            </tr>
+            <tr>
+              <td>XOR</td>
+              <td><input type="text" name="url" id="url" placeholder="Enter an image url..."></input></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="submit" value="UNLIMITED POWER"></input></td>
+            </tr>
+          </tbody>
+        </table>
       </form>
       <div id="verdict" hidden="true">
         NO
